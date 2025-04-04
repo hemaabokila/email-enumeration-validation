@@ -5,14 +5,14 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from colorama import Fore, Style
 import pyfiglet
 
-from email_generator import generate_emails
-from email_validator import check_email_smtp
-from hibp_checker import get_emails_hibp
-from reputation_checker import get_email_reputation
-from proxy_manager import load_proxies, get_random_proxy
-from tor_manager import renew_tor_ip, use_tor
-from utils import read_names_from_file, save_results
-from pyhunter_integration import find_emails_with_hunter
+from .email_generator import generate_emails
+from .email_validator import check_email_smtp
+from .hibp_checker import get_emails_hibp
+from .reputation_checker import get_email_reputation
+from .proxy_manager import load_proxies, get_random_proxy
+from .tor_manager import renew_tor_ip, use_tor
+from .utils import read_names_from_file, save_results
+from .pyhunter_integration import find_emails_with_hunter
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -30,7 +30,7 @@ def parse_arguments():
     parser.add_argument("--proxy-file", help="File containing list of HTTP/HTTPS proxies (one per line)")
     parser.add_argument("--apikey-pyhunter", help="API Key for pyhunter (optional)")
     parser.add_argument("--save", choices=["txt", "json", "csv"], help="Save results to file")
-    banner = pyfiglet.figlet_format("EMAILev")
+    banner = pyfiglet.figlet_format("EMAILEV")
     print(f"{Fore.BLUE}{banner}{Style.RESET_ALL}")
     print(f"{Fore.CYAN}Developed by: Ibrahem abo kila{Style.RESET_ALL}\n")
     return parser.parse_args()
